@@ -93,3 +93,53 @@ if (isset($_SESSION['flash'])) {
       </div>
     </form>
   </div>
+  <!-- TABLEAU DES ÉTUDIANTS -->
+  <div class="card">
+    <h2> Liste des étudiants</h2>
+    <?php if (empty($etudiants)): ?>
+      <div class="empty-state">
+        
+        <p>Aucun étudiant enregistré pour l'instant.</p>
+      </div>
+    <?php else: ?>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Filière</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($etudiants as $i => $e): ?>
+            <tr>
+              <td style="color:var(--muted)"><?= $i + 1 ?></td>
+              <td><strong><?= htmlspecialchars($e['nom']) ?></strong></td>
+              <td><?= htmlspecialchars($e['prenom']) ?></td>
+              <td><span class="badge"><?= htmlspecialchars($e['filiere_nom'] ?? '—') ?></span></td>
+              <td>
+                <div class="actions">
+                  <a href="update.php?id=<?= $e['id'] ?>" class="btn btn-edit"> Modifier</a>
+                  <a href="delete.php?id=<?= $e['id'] ?>"
+                     class="btn btn-danger"
+                     onclick="return confirmDelete(<?= $e['id'] ?>, '<?= addslashes($e['nom']) ?>', '<?= addslashes($e['prenom']) ?>')">
+                     Supprimer
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+    <?php endif; ?>
+  </div>
+
+</div>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>

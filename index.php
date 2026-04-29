@@ -16,13 +16,7 @@ $etudiants = $stmt->fetchAll();
 $totalEtudiants = count($etudiants);
 $totalFilieres  = count($filieres);
 
-// Message flash (après ajout / modif / suppression)
-$flash = $_SESSION['flash'] ?? null;
-if (isset($_SESSION['flash'])) {
-    session_start();
-    $flash = $_SESSION['flash'];
-    unset($_SESSION['flash']);
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -46,9 +40,7 @@ if (isset($_SESSION['flash'])) {
   <div class="page-title">Étudiants</div>
   <p class="page-subtitle">Gérez les étudiants et leurs filières</p>
 
-  <?php if ($flash): ?>
-    <div class="alert alert-<?= $flash['type'] ?>"><?= htmlspecialchars($flash['msg']) ?></div>
-  <?php endif; ?>
+ 
 
   <!-- STATS -->
   <div class="stats-bar">
@@ -98,7 +90,6 @@ if (isset($_SESSION['flash'])) {
     <h2> Liste des étudiants</h2>
     <?php if (empty($etudiants)): ?>
       <div class="empty-state">
-        
         <p>Aucun étudiant enregistré pour l'instant.</p>
       </div>
     <?php else: ?>

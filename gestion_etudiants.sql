@@ -1,6 +1,4 @@
--- ============================================
--- Script SQL : Gestion des Étudiants
--- ============================================
+
 
 CREATE DATABASE IF NOT EXISTS gestion_etudiants
   CHARACTER SET utf8mb4

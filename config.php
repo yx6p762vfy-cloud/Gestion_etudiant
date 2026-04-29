@@ -1,7 +1,13 @@
 <?php
+/**
+ * Connexion à la base de données via PDO
+ * À inclure dans toutes les pages PHP
+ */
+
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'gestion_etudiants');
-define('DB_USER', 'root');       
+define('DB_USER', 'root');       // Modifier selon votre config
+define('DB_PASS', '');           // Modifier selon votre config
 define('DB_CHARSET', 'utf8mb4');
 
 try {

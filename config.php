@@ -1,6 +1,4 @@
 <?php
-
-
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'gestion_etudiants');
 define('DB_USER', 'root');       

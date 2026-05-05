@@ -1,19 +1,19 @@
 
 
-CREATE DATABASE IF NOT EXISTS gestion_etudiants
+CREATE DATABASE  gestion_etudiants
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
 USE gestion_etudiants;
 
 -- Table des filières
-CREATE TABLE IF NOT EXISTS filieres (
+CREATE TABLE  filieres (
   id  INT AUTO_INCREMENT PRIMARY KEY,
   nom VARCHAR(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table des étudiants
-CREATE TABLE IF NOT EXISTS etudiants (
+CREATE TABLE  etudiants (
   id         INT AUTO_INCREMENT PRIMARY KEY,
   nom        VARCHAR(100) NOT NULL,
   prenom     VARCHAR(100) NOT NULL,
